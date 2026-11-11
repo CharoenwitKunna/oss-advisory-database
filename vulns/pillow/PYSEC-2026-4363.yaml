@@ -1,27 +1,10 @@
-id: PYSEC-0000-CVE-2026-112902
-details: "Pillow is a Python imaging library. In versions through 12.3.0, the libtiff\
-  \ TIFF encoder can pass arguments to \_TIFFSetField()\_ that do not match libtiff\u2019\
-  s definition of the corresponding tag. When an application saves attacker-controlled\
-  \ image metadata through this encoder, crafted tag values can cause invalid memory\
-  \ reads, copying process memory into the encoded output or crashing the process.\
-  \ Applications that return the encoded output to an attacker can disclose that memory.\
-  \ The issue is reachable when re-saving compressed TIFF images and through certain\
-  \ conversions that preserve EXIF metadata into compressed TIFF output. This vulnerability\
-  \ is fixed in version 13.0.0."
+id: PYSEC-2026-4363
+published: "2026-11-05T21:18:36.713Z"
+modified: "2026-11-11T09:33:54.480334Z"
 aliases:
 - CVE-2026-112902
 - GHSA-xvh5-g6gv-559v
-modified: '2026-11-11T09:33:54.480334Z'
-published: '2026-11-05T21:18:36.713Z'
-references:
-- type: ADVISORY
-  url: https://github.com/python-pillow/Pillow/releases/tag/13.0.0
-- type: FIX
-  url: https://github.com/python-pillow/Pillow/commit/570df030c0d30c2bf5336b2ab59f3902d8ab0b6d
-- type: FIX
-  url: https://github.com/python-pillow/Pillow/pull/10227
-- type: FIX
-  url: https://github.com/python-pillow/Pillow/security/advisories/GHSA-xvh5-g6gv-559v
+details: Pillow is a Python imaging library. In versions through 12.3.0, the libtiff TIFF encoder can pass arguments to  TIFFSetField()  that do not match libtiff’s definition of the corresponding tag. When an application saves attacker-controlled image metadata through this encoder, crafted tag values can cause invalid memory reads, copying process memory into the encoded output or crashing the process. Applications that return the encoded output to an attacker can disclose that memory. The issue is reachable when re-saving compressed TIFF images and through certain conversions that preserve EXIF metadata into compressed TIFF output. This vulnerability is fixed in version 13.0.0.
 affected:
 - package:
     name: pillow
@@ -30,16 +13,16 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 13.0.0
   versions:
-  - '1.0'
-  - '1.1'
-  - '1.2'
-  - '1.3'
-  - '1.4'
-  - '1.5'
-  - '1.6'
+  - "1.0"
+  - "1.1"
+  - "1.2"
+  - "1.3"
+  - "1.4"
+  - "1.5"
+  - "1.6"
   - 1.7.0
   - 1.7.1
   - 1.7.2
@@ -141,6 +124,15 @@ affected:
   - 9.4.0
   - 9.5.0
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://github.com/python-pillow/Pillow/releases/tag/13.0.0
+- type: FIX
+  url: https://github.com/python-pillow/Pillow/commit/570df030c0d30c2bf5336b2ab59f3902d8ab0b6d
+- type: FIX
+  url: https://github.com/python-pillow/Pillow/pull/10227
+- type: FIX
+  url: https://github.com/python-pillow/Pillow/security/advisories/GHSA-xvh5-g6gv-559v
 severity:
 - type: CVSS_V3
   score: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H
