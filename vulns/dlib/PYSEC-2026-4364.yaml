@@ -1,15 +1,9 @@
-id: PYSEC-0000-CVE-2026-24799
-details: |-
-  Out-of-bounds Write, Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in davisking dlib (dlib/external/zlib modules). This vulnerability is associated with program files inflate.C.
-
-  This issue affects dlib: before v19.24.9.
+id: PYSEC-2026-4364
+published: "2026-01-27T09:15:49.787Z"
+modified: "2026-11-14T09:33:09.639934Z"
 aliases:
 - CVE-2026-24799
-modified: '2026-11-14T09:33:09.639934Z'
-published: '2026-01-27T09:15:49.787Z'
-references:
-- type: FIX
-  url: https://github.com/davisking/dlib/pull/3063
+details: "Out-of-bounds Write, Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in davisking dlib (dlib/external/zlib modules). This vulnerability is associated with program files inflate.C.\n\nThis issue affects dlib: before v19.24.9."
 affected:
 - package:
     name: dlib
@@ -18,7 +12,7 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 19.24.9
   versions:
   - 18.17.100
@@ -61,6 +55,9 @@ affected:
   - 19.8.2
   - 19.9.0
   ecosystem_specific: {}
+references:
+- type: FIX
+  url: https://github.com/davisking/dlib/pull/3063
 severity:
 - type: CVSS_V3
   score: CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:H
