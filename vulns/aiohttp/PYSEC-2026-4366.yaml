@@ -1,21 +1,10 @@
-id: PYSEC-0000-CVE-2026-111750
-details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python.
-  Prior to 3.14.4, the pure Python parser accepts ambiguous HTTP request framing.
-  An unauthenticated attacker can consequently smuggle requests when an application
-  uses AIOHTTP_NO_EXTENSIONS or otherwise runs without a standard wheel and an intermediary
-  interprets the framing differently. This issue is fixed in version 3.14.4.
+id: PYSEC-2026-4366
+published: "2026-10-19T17:17:03.377Z"
+modified: "2026-11-17T09:33:24.473722Z"
 aliases:
-- CVE-2026-111750
-- GHSA-pqxq-w44r-73xw
-modified: '2026-11-17T09:33:25.179809Z'
-published: '2026-10-19T17:17:04.253Z'
-references:
-- type: ADVISORY
-  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/commit/9b27347e61454d9f8ca2055f4c67a37dee336e83
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-pqxq-w44r-73xw
+- CVE-2026-111064
+- GHSA-5wr8-gcqf-gqf3
+details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python. Prior to 3.14.4, keepalive timeout handling is absent during the initial portion of a request. An attacker can keep an idle connection open indefinitely before sending any request data, consuming server connection capacity. This issue is fixed in version 3.14.4.
 affected:
 - package:
     name: aiohttp
@@ -24,10 +13,10 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 3.14.4
   versions:
-  - '0.1'
+  - "0.1"
   - 0.10.0
   - 0.10.1
   - 0.10.2
@@ -62,7 +51,7 @@ affected:
   - 0.18.3
   - 0.18.4
   - 0.19.0
-  - '0.2'
+  - "0.2"
   - 0.20.0
   - 0.20.1
   - 0.20.2
@@ -86,8 +75,8 @@ affected:
   - 0.22.3
   - 0.22.4
   - 0.22.5
-  - '0.3'
-  - '0.4'
+  - "0.3"
+  - "0.4"
   - 0.4.1
   - 0.4.2
   - 0.4.3
@@ -338,6 +327,13 @@ affected:
   - 3.9.4rc0
   - 3.9.5
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/commit/be846822b4b3a5a54b6163e794b42dc06fba54a3
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-5wr8-gcqf-gqf3
 severity:
 - type: CVSS_V3
-  score: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L
+  score: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H

@@ -1,22 +1,10 @@
-id: PYSEC-0000-CVE-2026-111748
-details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python.
-  Prior to 3.14.4, an attacker can send an absolute-form request that causes Request.scheme
-  to use attacker-controlled request-target scheme data instead of the connection
-  protocol. Applications that use Request.scheme for security decisions can consequently
-  be tricked into treating an unencrypted connection as encrypted or an encrypted
-  connection as unencrypted. This issue is fixed in version 3.14.4.
+id: PYSEC-2026-4367
+published: "2026-10-19T17:17:03.503Z"
+modified: "2026-11-17T09:33:24.634713Z"
 aliases:
-- CVE-2026-111748
-- GHSA-f9xw-jh8m-3mwq
-modified: '2026-11-17T09:33:24.854100Z'
-published: '2026-10-19T17:17:03.877Z'
-references:
-- type: ADVISORY
-  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/commit/6d4e7b01f9b951aa084a75d7356e907d4ee80411
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-f9xw-jh8m-3mwq
+- CVE-2026-111065
+- GHSA-6cjc-53gc-5rqm
+details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python. Prior to 3.14.4, Max-Age processing can overflow and skip closing a connection. An attacker can consequently exhaust the connection pool temporarily until garbage collection resolves the connections. This issue is fixed in version 3.14.4.
 affected:
 - package:
     name: aiohttp
@@ -25,10 +13,10 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 3.14.4
   versions:
-  - '0.1'
+  - "0.1"
   - 0.10.0
   - 0.10.1
   - 0.10.2
@@ -63,7 +51,7 @@ affected:
   - 0.18.3
   - 0.18.4
   - 0.19.0
-  - '0.2'
+  - "0.2"
   - 0.20.0
   - 0.20.1
   - 0.20.2
@@ -87,8 +75,8 @@ affected:
   - 0.22.3
   - 0.22.4
   - 0.22.5
-  - '0.3'
-  - '0.4'
+  - "0.3"
+  - "0.4"
   - 0.4.1
   - 0.4.2
   - 0.4.3
@@ -339,6 +327,13 @@ affected:
   - 3.9.4rc0
   - 3.9.5
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/commit/9dd8eaf4e31f1237ef2c1574a8c82a739fca5805
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-6cjc-53gc-5rqm
 severity:
 - type: CVSS_V3
-  score: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N
+  score: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L

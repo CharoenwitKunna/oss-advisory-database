@@ -1,21 +1,10 @@
-id: PYSEC-0000-CVE-2026-111749
-details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python.
-  Prior to 3.14.4, Host-Only scope on an existing parent-domain cookie can be removed
-  by a subdomain. A user who accesses an untrusted subdomain can consequently have
-  host-only protections stripped from cookies, although impact is limited when applications
-  do not reflect those cookies to a browser. This issue is fixed in version 3.14.4.
+id: PYSEC-2026-4370
+published: "2026-10-19T17:17:04.023Z"
+modified: "2026-11-17T09:33:25.011483Z"
 aliases:
 - CVE-2026-111749
 - GHSA-gx76-c99x-2c96
-modified: '2026-11-17T09:33:25.011483Z'
-published: '2026-10-19T17:17:04.023Z'
-references:
-- type: ADVISORY
-  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/commit/6a07c171ef9f3be583e2907dcd1931372efca8d6
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-gx76-c99x-2c96
+details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python. Prior to 3.14.4, Host-Only scope on an existing parent-domain cookie can be removed by a subdomain. A user who accesses an untrusted subdomain can consequently have host-only protections stripped from cookies, although impact is limited when applications do not reflect those cookies to a browser. This issue is fixed in version 3.14.4.
 affected:
 - package:
     name: aiohttp
@@ -24,10 +13,10 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 3.14.4
   versions:
-  - '0.1'
+  - "0.1"
   - 0.10.0
   - 0.10.1
   - 0.10.2
@@ -62,7 +51,7 @@ affected:
   - 0.18.3
   - 0.18.4
   - 0.19.0
-  - '0.2'
+  - "0.2"
   - 0.20.0
   - 0.20.1
   - 0.20.2
@@ -86,8 +75,8 @@ affected:
   - 0.22.3
   - 0.22.4
   - 0.22.5
-  - '0.3'
-  - '0.4'
+  - "0.3"
+  - "0.4"
   - 0.4.1
   - 0.4.2
   - 0.4.3
@@ -338,6 +327,13 @@ affected:
   - 3.9.4rc0
   - 3.9.5
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/commit/6a07c171ef9f3be583e2907dcd1931372efca8d6
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-gx76-c99x-2c96
 severity:
 - type: CVSS_V3
   score: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N
