@@ -1,23 +1,10 @@
-id: PYSEC-0000-CVE-2026-113732
-details: virtualenv is a tool for creating isolated virtual python environments. Prior
-  to 21.14.2, FishActivator inherits ViaTemplateActivator.quote(), which uses POSIX
-  shlex.quote() even though fish interprets backslashes and single quotes differently.
-  An attacker-influenced environment path, --prompt, or VIRTUALENV_PROMPT value containing
-  a backslash before a quote can therefore terminate the generated fish literal and
-  execute command substitution when the user sources activate.fish. This issue is
-  fixed in version 21.14.2.
+id: PYSEC-2026-4385
+published: "2026-10-20T22:19:29.423Z"
+modified: "2026-11-18T11:33:49.060490Z"
 aliases:
-- CVE-2026-113732
-- GHSA-c947-3pg5-gm8q
-modified: '2026-11-18T11:33:49.168766Z'
-published: '2026-10-20T22:19:30.413Z'
-references:
-- type: ADVISORY
-  url: https://github.com/pypa/virtualenv/releases/tag/21.14.2
-- type: FIX
-  url: https://github.com/pypa/virtualenv/commit/3bddeaf8d02c3ee7f576503efb082f8f494cfcab
-- type: FIX
-  url: https://github.com/pypa/virtualenv/security/advisories/GHSA-c947-3pg5-gm8q
+- CVE-2026-113726
+- GHSA-5vjq-rrrf-7h2q
+details: virtualenv is a tool for creating isolated virtual python environments. Prior to 21.13.0, the bash activate script that zsh also sources leaves the environment name unescaped; from 21.13.0 until 21.14.4, it escapes backslashes, dollar signs, and backticks only when BASH_VERSION is set, so zsh receives the raw value. The script assigns that value to PS1. In zsh with PROMPT_SUBST, an attacker-influenced environment directory, --prompt, or VIRTUALENV_PROMPT value containing command, parameter, or arithmetic expansion syntax can therefore execute commands in the user's shell each time the prompt is drawn. A percent sign is separately interpreted as a zsh prompt escape but does not by itself execute commands. Plain zsh with PROMPT_SUBST disabled and bash are not affected by this mechanism. This issue is fixed in version 21.14.4.
 affected:
 - package:
     name: virtualenv
@@ -26,35 +13,35 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
-    - fixed: 21.14.2
+    - introduced: "0"
+    - fixed: 21.14.4
   versions:
-  - '0.8'
+  - "0.8"
   - 0.8.1
   - 0.8.2
   - 0.8.3
   - 0.8.4
-  - '0.9'
+  - "0.9"
   - 0.9.1
   - 0.9.2
-  - '1.0'
-  - '1.1'
-  - '1.10'
+  - "1.0"
+  - "1.1"
+  - "1.10"
   - 1.10.1
-  - '1.11'
+  - "1.11"
   - 1.11.1
   - 1.11.2
   - 1.11.3
   - 1.11.4
   - 1.11.5
   - 1.11.6
-  - '1.2'
-  - '1.3'
+  - "1.2"
+  - "1.3"
   - 1.3.1
   - 1.3.2
   - 1.3.3
   - 1.3.4
-  - '1.4'
+  - "1.4"
   - 1.4.1
   - 1.4.2
   - 1.4.3
@@ -65,27 +52,27 @@ affected:
   - 1.4.8
   - 1.4.9
   - 1.4rc1
-  - '1.5'
+  - "1.5"
   - 1.5.1
   - 1.5.2
-  - '1.6'
+  - "1.6"
   - 1.6.1
   - 1.6.2
   - 1.6.3
   - 1.6.4
-  - '1.7'
+  - "1.7"
   - 1.7.1
   - 1.7.1.1
   - 1.7.1.2
   - 1.7.2
-  - '1.8'
+  - "1.8"
   - 1.8.1
   - 1.8.2
   - 1.8.3
   - 1.8.4
-  - '1.9'
+  - "1.9"
   - 1.9.1
-  - '12.0'
+  - "12.0"
   - 12.0.1
   - 12.0.2
   - 12.0.4
@@ -288,6 +275,8 @@ affected:
   - 21.13.0
   - 21.14.0
   - 21.14.1
+  - 21.14.2
+  - 21.14.3
   - 21.2.0
   - 21.2.1
   - 21.2.2
@@ -327,6 +316,13 @@ affected:
   - 21.9.0
   - 21.9.1
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://github.com/pypa/virtualenv/releases/tag/21.14.4
+- type: FIX
+  url: https://github.com/pypa/virtualenv/commit/5b915367da82bd024b2a0d28d2f98007034b4aa2
+- type: FIX
+  url: https://github.com/pypa/virtualenv/security/advisories/GHSA-5vjq-rrrf-7h2q
 severity:
 - type: CVSS_V3
   score: CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
