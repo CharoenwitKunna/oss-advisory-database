@@ -1,30 +1,10 @@
-id: PYSEC-0000-CVE-2026-128127
-details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python.
-  Prior to 3.14.4, BodyPartReader.read_chunk() processing a multipart part with Content-Transfer-Encoding
-  set to base64 keeps reading until the chunk length is a multiple of four without
-  enforcing a byte limit. A short Content-Length or a long run of whitespace can cause
-  one call to read the remaining body into memory before the size check or spin on
-  the event loop. A remote attacker can send such a multipart request to a handler
-  that reads multipart data and bypass client_max_size. This issue is fixed in version
-  3.14.4.
+id: PYSEC-2026-4391
+published: "2026-11-13T21:17:44.003Z"
+modified: "2026-11-20T09:33:21.019835Z"
 aliases:
-- CVE-2026-128127
-- GHSA-24c4-3p7v-29cm
-modified: '2026-11-20T09:33:21.859408Z'
-published: '2026-11-13T21:17:44.460Z'
-references:
-- type: ADVISORY
-  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/commit/2d9c5c1062eff0034fb3ab120897a6c1b3ff7041
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/commit/a555ab698e08e9baea7386d5b4c0761cb8956fdd
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/pull/13509
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/pull/13513
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-24c4-3p7v-29cm
+- CVE-2026-128124
+- GHSA-jm3w-gw2p-xjfj
+details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python. Prior to 3.14.4, Application.add_domain() converts every asterisk wildcard in a domain mask into a greedy regular-expression fragment, so a mask containing two or more wildcards can take polynomial time to reject a long Host header that does not match. A remote attacker can repeatedly send such headers to a server configured with a multi-wildcard domain mask and stall the event loop. This issue is fixed in version 3.14.4.
 affected:
 - package:
     name: aiohttp
@@ -33,10 +13,10 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 3.14.4
   versions:
-  - '0.1'
+  - "0.1"
   - 0.10.0
   - 0.10.1
   - 0.10.2
@@ -71,7 +51,7 @@ affected:
   - 0.18.3
   - 0.18.4
   - 0.19.0
-  - '0.2'
+  - "0.2"
   - 0.20.0
   - 0.20.1
   - 0.20.2
@@ -95,8 +75,8 @@ affected:
   - 0.22.3
   - 0.22.4
   - 0.22.5
-  - '0.3'
-  - '0.4'
+  - "0.3"
+  - "0.4"
   - 0.4.1
   - 0.4.2
   - 0.4.3
@@ -347,6 +327,19 @@ affected:
   - 3.9.4rc0
   - 3.9.5
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/commit/766b882820da0651c84090e366a3b024b4a263c9
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/commit/c6ac0e44c3c573ff9616f4a6a532992538b31e43
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/pull/13943
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/pull/13945
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-jm3w-gw2p-xjfj
 severity:
 - type: CVSS_V3
   score: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H

@@ -1,29 +1,10 @@
-id: PYSEC-0000-CVE-2026-128128
-details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python.
-  Prior to 3.14.4, the C WebSocket reader adds a declared frame length to the size
-  of an already buffered partial message using signed 64-bit arithmetic. A length
-  near two to the power of 63 can overflow, allowing the max_msg_size check to pass.
-  A remote peer can send a small non-final fragment followed by an oversized message
-  and cause unbounded memory consumption. The Python WebSocket reader is unaffected.
-  This issue is fixed in version 3.14.4.
+id: PYSEC-2026-4393
+published: "2026-11-13T21:17:44.310Z"
+modified: "2026-11-20T09:33:21.580013Z"
 aliases:
-- CVE-2026-128128
-- GHSA-3rp8-rxj8-mvjw
-modified: '2026-11-20T09:33:22.131609Z'
-published: '2026-11-13T21:17:44.597Z'
-references:
-- type: ADVISORY
-  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/commit/8c8906a19f64e52ef6a7d44d65217eb3c5af413f
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/commit/8cfbe9abe5e11b84006a10f9bdf82bf607671dab
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/pull/13415
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/pull/13494
-- type: FIX
-  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-3rp8-rxj8-mvjw
+- CVE-2026-128126
+- GHSA-xgw8-8ccx-rmqh
+details: AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python. Prior to 3.14.4, Request.post() does not limit the number of fields in a URL-encoded form body, and inserting many repeated keys into MultiDict takes quadratic time on the event loop. A remote attacker can send a form POST within client_max_size to a handler that calls Request.post() and block the event loop. This issue is fixed in version 3.14.4.
 affected:
 - package:
     name: aiohttp
@@ -32,10 +13,10 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 3.14.4
   versions:
-  - '0.1'
+  - "0.1"
   - 0.10.0
   - 0.10.1
   - 0.10.2
@@ -70,7 +51,7 @@ affected:
   - 0.18.3
   - 0.18.4
   - 0.19.0
-  - '0.2'
+  - "0.2"
   - 0.20.0
   - 0.20.1
   - 0.20.2
@@ -94,8 +75,8 @@ affected:
   - 0.22.3
   - 0.22.4
   - 0.22.5
-  - '0.3'
-  - '0.4'
+  - "0.3"
+  - "0.4"
   - 0.4.1
   - 0.4.2
   - 0.4.3
@@ -346,6 +327,19 @@ affected:
   - 3.9.4rc0
   - 3.9.5
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/commit/615fec3d4f088f30d2ee72cad760152e92aa1c53
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/commit/8b0100572936df28977b9de8a6cc7e464c0b521e
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/pull/13738
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/pull/13741
+- type: FIX
+  url: https://github.com/aio-libs/aiohttp/security/advisories/GHSA-xgw8-8ccx-rmqh
 severity:
 - type: CVSS_V3
   score: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
