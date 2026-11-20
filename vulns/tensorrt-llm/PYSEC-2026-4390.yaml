@@ -1,17 +1,9 @@
-id: PYSEC-0000-CVE-2026-24220
-details: NVIDIA TensorRT-LLM for any platform contains a vulnerability in visual gen
-  server, where an attacker could cause an unsafe deserialization by unauthorized
-  zeroMQ deserialization. A successful exploit of this vulnerability might lead to
-  code execution.
+id: PYSEC-2026-4390
+published: "2026-07-14T21:16:43.773Z"
+modified: "2026-11-20T04:33:10.568650Z"
 aliases:
 - CVE-2026-24220
-modified: '2026-11-20T04:33:10.568650Z'
-published: '2026-07-14T21:16:43.773Z'
-references:
-- type: ADVISORY
-  url: https://nvd.nist.gov/vuln/detail/CVE-2026-24220
-- type: ADVISORY
-  url: https://www.cve.org/CVERecord?id=CVE-2026-24220
+details: NVIDIA TensorRT-LLM for any platform contains a vulnerability in visual gen server, where an attacker could cause an unsafe deserialization by unauthorized zeroMQ deserialization. A successful exploit of this vulnerability might lead to code execution.
 affected:
 - package:
     name: tensorrt-llm
@@ -20,7 +12,7 @@ affected:
   ranges:
   - type: ECOSYSTEM
     events:
-    - introduced: '0'
+    - introduced: "0"
     - fixed: 1.4.0rc0
   versions:
   - 0.10.0
@@ -179,6 +171,11 @@ affected:
   - 1.3.0rc8
   - 1.3.0rc9
   ecosystem_specific: {}
+references:
+- type: ADVISORY
+  url: https://nvd.nist.gov/vuln/detail/CVE-2026-24220
+- type: ADVISORY
+  url: https://www.cve.org/CVERecord?id=CVE-2026-24220
 severity:
 - type: CVSS_V3
   score: CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H
