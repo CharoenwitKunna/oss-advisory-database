@@ -48,7 +48,7 @@ packages:
 - mjml # Unofficial port of JS library.
 - nanopb # Most likely refers to C library.
 - prop  # Most likely refers to JS library.
-- rcl  # Most likley refers to actual rclone tool.
+- rcl  # Most likely refers to actual rclone tool.
 - rendertron  # Most likely refers to JS tool.
 - saleor # most likely refers to JS library.
 - openapi-generator-cli  # Java tool.
